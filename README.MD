@@ -2,7 +2,7 @@ To run the server room environment monitoring:
 
 1. Create "RPi3" InfluxDB database
 2. Start mosquitto mqtt broker on localhost:1883
-3. Run main.py
+3. Run main.py (ssh to Raspberry Pi if running in harware mode)
 4. Run receiver.py
 
 # Server Room Monitoring System
