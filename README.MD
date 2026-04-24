@@ -150,7 +150,7 @@ HOST = "192.168.1.x"  # Pi's IP address
  
 ## Grafana Dashboard
 
-
+![Dashboard](assets/dashboard.png)
  
 Connect InfluxDB as a data source:
 - **URL:** `http://localhost:8086`
