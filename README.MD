@@ -43,10 +43,7 @@ server_room_monitoring/
 ├── main.py              # Entry point — starts all sensor threads
 ├── receiver.py          # Subscribes to MQTT and writes to InfluxDB
 ├── utils.py             # Shared utilities (publish_message, load_config)
-├── config.json          # Sensor thresholds (see config.example.json)
-├── config.example.json  # Example config — copy to config.json
-├── .env                 # Environment variables (never commit this)
-│
+├── config.json          # Sensor thresholds (create to set the thresholds)
 ├── gps_sensor.py        # GPS sensor (real + simulated)
 ├── dht11_worker.py      # Temperature & humidity sensor (real + simulated)
 ├── light_sensor.py      # Light sensor (real + simulated)
@@ -80,11 +77,8 @@ pip install paho-mqtt influxdb python-dotenv
 ```
  
 ### 3 — Set up config file
-```bash
-cp config.example.json config.json
-```
- 
-Edit `config.json` with your thresholds:
+
+Create `config.json` with your thresholds:
 ```json
 {
     "temperature": {"min": 18, "max": 30},
@@ -133,10 +127,10 @@ Open `http://localhost:3000` and sign in with `admin/admin`.
 Open two terminals:
  
 ```bash
-# Terminal 1 — sensors publishing to MQTT
+# Terminal 1: sensors publishing to MQTT
 python main.py --simulation
  
-# Terminal 2 — receiver writing to InfluxDB
+# Terminal 2: receiver writing to InfluxDB
 python receiver.py --simulation
 ```
  
@@ -155,6 +149,8 @@ HOST = "192.168.1.x"  # Pi's IP address
 ```
  
 ## Grafana Dashboard
+
+
  
 Connect InfluxDB as a data source:
 - **URL:** `http://localhost:8086`
@@ -233,5 +229,5 @@ Thresholds are configured in `config.json`:
 config.json
 logs/
 ```
-- GPS and location data are sensitive — use a local Mosquitto broker, not a public one
+- GPS data are sensitive. Use a local Mosquitto broker, not a public one
  
