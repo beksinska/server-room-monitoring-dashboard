@@ -212,7 +212,7 @@ Each log entry includes a precise UTC timestamp:
 If temperature or humidity exceeds the thresholds defined in `config.json`, a warning is triggered:
 - **Live mode:** buzzer and vibration motor activate for 1 second
 - **Simulation mode:** warning message printed to terminal
-Thresholds are configured in `config.json`:
+- **Thresholds are configured in `config.json`:
 ```json
 {
     "temperature": {"min": 18, "max": 30},
